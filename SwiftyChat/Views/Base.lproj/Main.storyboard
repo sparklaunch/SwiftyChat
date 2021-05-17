@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -10,19 +11,72 @@
         <!--Welcome View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="WelcomeViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="SwiftyChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⌘ Swifty Chat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8L7-Hx-Aj7">
+                                <rect key="frame" x="95.666666666666686" y="144" width="237" height="43"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SwiftLogo" translatesAutoresizingMaskIntoConstraints="NO" id="MNH-15-Bi3">
+                                <rect key="frame" x="139" y="237" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="FO6-C7-g6T"/>
+                                    <constraint firstAttribute="width" constant="150" id="jO2-vB-zZY"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3S-3Y-W48">
+                                <rect key="frame" x="30" y="692" width="368" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="LGY-5h-9uL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <state key="normal" title="Login" backgroundImage="ButtonBackground">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qiX-xb-LYM">
+                                <rect key="frame" x="30" y="782" width="368" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Eej-ne-KlR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <state key="normal" title="Register" backgroundImage="ButtonBackground">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qiX-xb-LYM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="9xg-P2-mtD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="x3S-3Y-W48" secondAttribute="trailing" constant="30" id="K1L-M2-XX2"/>
+                            <constraint firstItem="MNH-15-Bi3" firstAttribute="top" secondItem="8L7-Hx-Aj7" secondAttribute="bottom" constant="50" id="Lnw-sj-wtL"/>
+                            <constraint firstItem="8L7-Hx-Aj7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ML7-bU-WUb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qiX-xb-LYM" secondAttribute="trailing" constant="30" id="Ttm-yf-Zxm"/>
+                            <constraint firstItem="8L7-Hx-Aj7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="bbb-mO-Nfl"/>
+                            <constraint firstItem="x3S-3Y-W48" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="cLY-VR-TJ3"/>
+                            <constraint firstItem="qiX-xb-LYM" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-30" id="kWT-eg-pCF"/>
+                            <constraint firstItem="MNH-15-Bi3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lcz-ic-QYf"/>
+                            <constraint firstItem="qiX-xb-LYM" firstAttribute="top" secondItem="x3S-3Y-W48" secondAttribute="bottom" constant="10" id="sfk-VQ-lol"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="88.392857142857139"/>
         </scene>
     </scenes>
     <resources>
+        <image name="ButtonBackground" width="360" height="360"/>
+        <image name="SwiftLogo" width="107" height="107"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

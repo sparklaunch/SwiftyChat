@@ -6,5 +6,5 @@
 //
 
 struct K {
-    
+    static let titleText: String = "⌘ Swifty Chat"
 }
