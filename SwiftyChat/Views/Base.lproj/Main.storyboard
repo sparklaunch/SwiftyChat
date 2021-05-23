@@ -170,10 +170,29 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="56a-Ya-Hg6"/>
+                    <connections>
+                        <outlet property="passwordTextField" destination="GBj-vf-a9B" id="d4g-rn-ZmY"/>
+                        <outlet property="usernameTextField" destination="vhg-tM-9dA" id="frQ-JY-aw7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K4N-T8-IHD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1800" y="-196.32829373650108"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="PcU-oI-2cu">
+            <objects>
+                <viewController id="HVI-ZQ-gqD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XXl-KR-4Fh">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="tyM-m8-yTV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lPd-Zy-NRp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2640" y="8"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XyL-vC-qKZ">
