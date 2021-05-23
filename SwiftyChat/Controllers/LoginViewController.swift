@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         self.usernameTextField.delegate = self
         self.passwordTextField.delegate = self
+        self.title = "Log In"
     }
 }
 
@@ -38,7 +39,9 @@ extension LoginViewController: UITextFieldDelegate {
                 }
                 else {
                     // When no error is found.
-                    
+                    let chatViewController: ChatViewController = self.storyboard?.instantiateViewController(identifier: "Chat") as! ChatViewController
+                    chatViewController.username = username
+                    self.navigationController?.pushViewController(chatViewController, animated: true)
                 }
             }
             return true
