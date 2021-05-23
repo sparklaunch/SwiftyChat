@@ -102,7 +102,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wLG-Cj-i8W">
-                                <rect key="frame" x="30" y="659.33333333333337" width="368" height="92.666666666666629"/>
+                                <rect key="frame" x="30" y="660.66666666666663" width="368" height="91.333333333333371"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H7E-bC-r8U">
                                         <rect key="frame" x="0.0" y="0.0" width="368" height="38.333333333333336"/>
@@ -116,18 +116,18 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your email here..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mes-Fc-RkV">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your email here..." adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mes-Fc-RkV">
                                                 <rect key="frame" x="120" y="0.0" width="248" height="38.333333333333336"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="go" textContentType="username"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKm-F3-c7H">
-                                        <rect key="frame" x="0.0" y="54.333333333333258" width="368" height="38.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="54.333333333333371" width="368" height="37"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9N-OL-aCJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="120" height="38.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="37"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="120" id="6jb-bu-YN9"/>
                                                 </constraints>
@@ -135,10 +135,10 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your password here..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="brG-A0-hS2">
-                                                <rect key="frame" x="120" y="0.0" width="248" height="38.333333333333336"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your password here..." adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="brG-A0-hS2">
+                                                <rect key="frame" x="120" y="0.0" width="248" height="37"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -172,6 +172,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Lac-pJ-MIp"/>
+                    <connections>
+                        <outlet property="passwordTextField" destination="brG-A0-hS2" id="QyB-jy-pph"/>
+                        <outlet property="usernameTextField" destination="mes-Fc-RkV" id="raa-zB-5kN"/>
+                        <segue destination="HVI-ZQ-gqD" kind="show" identifier="goToChatFromRegister" id="jVm-40-bsp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8Q-XB-CyR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -317,6 +322,9 @@
             <point key="canvasLocation" x="131.77570093457942" y="88.120950323974085"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="jVm-40-bsp"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="ButtonBackground" width="360" height="360"/>
         <image name="SwiftLogo" width="107" height="107"/>

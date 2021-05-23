@@ -19,13 +19,9 @@ class LoginViewController: UIViewController {
     }
 }
 
-// MARK: - Username TextField Delegate
+// MARK: - Username and Password TextField Delegate
 
 extension LoginViewController: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        print("Editing finished.")
-        print(textField.text!)
-    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if self.usernameTextField.text! != "" && self.passwordTextField.text! != "" {
             // When both the username and password textfield have inputs.
