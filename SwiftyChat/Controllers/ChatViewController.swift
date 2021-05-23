@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ChatViewController: UIViewController {
     var username: String?
@@ -20,5 +21,16 @@ class ChatViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationItem.hidesBackButton = false
+    }
+    @IBAction func logOutButtonPressed(_ sender: UIBarButtonItem) {
+        do {
+            try Auth.auth().signOut()
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        catch let error {
+            // When the logout failed.
+            let localizedError: String = error.localizedDescription
+            print(localizedError)
+        }
     }
 }

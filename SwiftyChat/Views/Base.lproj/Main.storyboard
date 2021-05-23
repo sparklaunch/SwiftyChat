@@ -153,6 +153,9 @@
                                 <state key="normal" title="Register" backgroundImage="ButtonBackground">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="registerButtonPressed:" destination="m50-EU-yQc" eventType="touchUpInside" id="CVV-rG-lmE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kuX-lb-L8Y"/>
@@ -255,6 +258,9 @@
                                 <state key="normal" title="Login" backgroundImage="ButtonBackground">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="logInButtonPressed:" destination="adp-NY-XPe" eventType="touchUpInside" id="ixA-s6-JyR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="IGd-sf-JDg"/>
@@ -296,7 +302,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="ACx-BD-y5a">
-                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="WA0-UC-wZv"/>
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="WA0-UC-wZv">
+                            <connections>
+                                <action selector="logOutButtonPressed:" destination="HVI-ZQ-gqD" id="hUQ-Cw-45Z"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lPd-Zy-NRp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
