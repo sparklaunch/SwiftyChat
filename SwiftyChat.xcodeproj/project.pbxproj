@@ -18,6 +18,9 @@
 		2E48F4DF265A216200FB47D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E48F4DE265A216200FB47D2 /* GoogleService-Info.plist */; };
 		2E48F4E1265A245D00FB47D2 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48F4E0265A245D00FB47D2 /* ChatViewController.swift */; };
 		2E48F4E3265A27CF00FB47D2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48F4E2265A27CF00FB47D2 /* RegisterViewController.swift */; };
+		2E48F4E5265B635000FB47D2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48F4E4265B635000FB47D2 /* Message.swift */; };
+		2E48F4E8265B63F200FB47D2 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48F4E6265B63F200FB47D2 /* MessageTableViewCell.swift */; };
+		2E48F4E9265B63F200FB47D2 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E48F4E7265B63F200FB47D2 /* MessageTableViewCell.xib */; };
 		AA8B1AD7660551970F8BB195 /* Pods_SwiftyChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4209E51544EFD649D7FDF038 /* Pods_SwiftyChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +38,9 @@
 		2E48F4DE265A216200FB47D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2E48F4E0265A245D00FB47D2 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		2E48F4E2265A27CF00FB47D2 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		2E48F4E4265B635000FB47D2 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		2E48F4E6265B63F200FB47D2 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		2E48F4E7265B63F200FB47D2 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
 		4209E51544EFD649D7FDF038 /* Pods_SwiftyChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6D36A463D4FA15CF0E3C9F6 /* Pods-SwiftyChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyChat.release.xcconfig"; path = "Target Support Files/Pods-SwiftyChat/Pods-SwiftyChat.release.xcconfig"; sourceTree = "<group>"; };
 		F35C196A8A993302CD5B26CD /* Pods-SwiftyChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyChat.debug.xcconfig"; path = "Target Support Files/Pods-SwiftyChat/Pods-SwiftyChat.debug.xcconfig"; sourceTree = "<group>"; };
@@ -102,6 +108,8 @@
 				2E014D9926521F0E00716C28 /* LoginViewController.swift */,
 				2E48F4E0265A245D00FB47D2 /* ChatViewController.swift */,
 				2E48F4E2265A27CF00FB47D2 /* RegisterViewController.swift */,
+				2E48F4E6265B63F200FB47D2 /* MessageTableViewCell.swift */,
+				2E48F4E7265B63F200FB47D2 /* MessageTableViewCell.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -109,6 +117,7 @@
 		2E014D96265211E600716C28 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2E48F4E4265B635000FB47D2 /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -191,6 +200,7 @@
 			files = (
 				2E014D8D265211BC00716C28 /* LaunchScreen.storyboard in Resources */,
 				2E48F4DF265A216200FB47D2 /* GoogleService-Info.plist in Resources */,
+				2E48F4E9265B63F200FB47D2 /* MessageTableViewCell.xib in Resources */,
 				2E014D8A265211BC00716C28 /* Assets.xcassets in Resources */,
 				2E014D88265211BA00716C28 /* Main.storyboard in Resources */,
 			);
@@ -247,9 +257,11 @@
 			files = (
 				2E014D85265211BA00716C28 /* WelcomeViewController.swift in Sources */,
 				2E014D98265211F100716C28 /* K.swift in Sources */,
+				2E48F4E8265B63F200FB47D2 /* MessageTableViewCell.swift in Sources */,
 				2E48F4E3265A27CF00FB47D2 /* RegisterViewController.swift in Sources */,
 				2E014D81265211BA00716C28 /* AppDelegate.swift in Sources */,
 				2E014D9A26521F0E00716C28 /* LoginViewController.swift in Sources */,
+				2E48F4E5265B635000FB47D2 /* Message.swift in Sources */,
 				2E48F4E1265A245D00FB47D2 /* ChatViewController.swift in Sources */,
 				2E014D83265211BA00716C28 /* SceneDelegate.swift in Sources */,
 			);

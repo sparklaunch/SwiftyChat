@@ -9,9 +9,15 @@ import UIKit
 import Firebase
 
 class ChatViewController: UIViewController {
+    @IBOutlet var chatTableView: UITableView!
+    @IBOutlet var messageTextField: UITextField!
     var username: String?
+    var messages: [Message] = [Message]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.messageTextField.delegate = self
+        self.chatTableView.delegate = self
+        self.chatTableView.dataSource = self
         self.title = "Swifty Chat"
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -32,5 +38,63 @@ class ChatViewController: UIViewController {
             let localizedError: String = error.localizedDescription
             print(localizedError)
         }
+    }
+    @IBAction func sendButtonPressed(_ sender: UIButton) {
+        if self.messageTextField.text! != "" {
+            // When the message textfield is not empty.
+            let messageText: String = self.messageTextField.text!
+            self.sendMessage(messageText)
+            self.messageTextField.text! = ""
+        }
+        else {
+            // When the message textfield is empty.
+        }
+    }
+}
+
+// MARK: - Message TextField Delegate
+
+extension ChatViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.text! != "" {
+            // When the message textfield is not empty.
+            let messageText: String = textField.text!
+            self.sendMessage(messageText)
+            self.messageTextField.text = ""
+            return true
+        }
+        else {
+            // When the message textfield is empty.
+            return false
+        }
+    }
+    func sendMessage(_ messageText: String) {
+        let currentUser: String = Auth.auth().currentUser!.email!
+        let date: Double = Date().timeIntervalSince1970
+        let database: Firestore = Firestore.firestore()
+        let dataDictionary: [String: Any] = [
+            "username": currentUser,
+            "date": date,
+            "messageText": messageText
+        ]
+        database.collection("messages").addDocument(data: dataDictionary)
+    }
+}
+
+// MARK: - Message TableView Delegate
+
+extension ChatViewController: UITableViewDelegate {
+    
+}
+
+// MARK: - Message TableView DataSource
+
+extension ChatViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.messages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
     }
 }
