@@ -305,7 +305,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="gly-kx-b4p">
                                         <rect key="frame" x="39" y="29.666666666666629" width="350" height="41"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tkg-15-g9S">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tkg-15-g9S">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="41"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="240" id="oFm-BO-Rio"/>

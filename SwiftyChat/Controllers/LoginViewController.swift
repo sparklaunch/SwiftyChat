@@ -11,16 +11,21 @@ import Firebase
 class LoginViewController: UIViewController {
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
+    var authenticationManager: AuthenticationManager?
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.authenticationManager = AuthenticationManager()
         self.usernameTextField.delegate = self
         self.passwordTextField.delegate = self
+        self.authenticationManager?.delegate = self
         self.title = "Log In"
     }
     @IBAction func logInButtonPressed(_ sender: UIButton) {
         if self.usernameTextField.text! != "" && self.passwordTextField.text! != "" {
             // When both the username and the password textfield have inputs.
-            self.signIn()
+            let username: String = self.usernameTextField.text!
+            let password: String = self.passwordTextField.text!
+            self.authenticationManager?.signIn(with: username, with: password)
         }
         else {
             // When either one of the username and the password textfield is empty.
@@ -34,7 +39,9 @@ extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if self.usernameTextField.text! != "" && self.passwordTextField.text! != "" {
             // When both the username and password textfield have inputs.
-            self.signIn()
+            let username: String = self.usernameTextField.text!
+            let password: String = self.passwordTextField.text!
+            self.authenticationManager?.signIn(with: username, with: password)
             return true
         }
         else {
@@ -42,21 +49,14 @@ extension LoginViewController: UITextFieldDelegate {
             return false
         }
     }
-    func signIn() {
-        let username: String = self.usernameTextField.text!
-        let password: String = self.passwordTextField.text!
-        Auth.auth().signIn(withEmail: username, password: password) { (result, error) in
-            if let safeError: Error = error {
-                // When the error is not nil (if there is an error).
-                let localizedError: String = safeError.localizedDescription
-                print(localizedError)
-            }
-            else {
-                // When no error is found.
-                let chatViewController: ChatViewController = self.storyboard?.instantiateViewController(identifier: "Chat") as! ChatViewController
-                chatViewController.username = username
-                self.navigationController?.pushViewController(chatViewController, animated: true)
-            }
-        }
+}
+
+// MARK: - AuthenticationManagerDelegate
+
+extension LoginViewController: AuthenticationManagerDelegate {
+    func showChatViewController(with username: String) {
+        let chatViewController: ChatViewController = self.storyboard?.instantiateViewController(identifier: "Chat") as! ChatViewController
+        chatViewController.username = username
+        self.navigationController?.pushViewController(chatViewController, animated: true)
     }
 }

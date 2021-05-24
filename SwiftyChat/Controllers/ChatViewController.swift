@@ -93,8 +93,12 @@ extension ChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.messages.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let row: Int = indexPath.row
+        let message: Message = messages[row]
+        let messageCell: MessageTableViewCell = MessageTableViewCell()
+        messageCell.username = message.username
+        messageCell.messageText = message.messageText
+        return messageCell
     }
 }

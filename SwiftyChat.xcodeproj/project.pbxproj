@@ -21,6 +21,7 @@
 		2E48F4E5265B635000FB47D2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48F4E4265B635000FB47D2 /* Message.swift */; };
 		2E48F4E8265B63F200FB47D2 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48F4E6265B63F200FB47D2 /* MessageTableViewCell.swift */; };
 		2E48F4E9265B63F200FB47D2 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E48F4E7265B63F200FB47D2 /* MessageTableViewCell.xib */; };
+		2E48F4EB265B673500FB47D2 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48F4EA265B673500FB47D2 /* AuthenticationManager.swift */; };
 		AA8B1AD7660551970F8BB195 /* Pods_SwiftyChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4209E51544EFD649D7FDF038 /* Pods_SwiftyChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		2E48F4E4265B635000FB47D2 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		2E48F4E6265B63F200FB47D2 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		2E48F4E7265B63F200FB47D2 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
+		2E48F4EA265B673500FB47D2 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		4209E51544EFD649D7FDF038 /* Pods_SwiftyChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6D36A463D4FA15CF0E3C9F6 /* Pods-SwiftyChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyChat.release.xcconfig"; path = "Target Support Files/Pods-SwiftyChat/Pods-SwiftyChat.release.xcconfig"; sourceTree = "<group>"; };
 		F35C196A8A993302CD5B26CD /* Pods-SwiftyChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyChat.debug.xcconfig"; path = "Target Support Files/Pods-SwiftyChat/Pods-SwiftyChat.debug.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				2E48F4E4265B635000FB47D2 /* Message.swift */,
+				2E48F4EA265B673500FB47D2 /* AuthenticationManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				2E014D85265211BA00716C28 /* WelcomeViewController.swift in Sources */,
 				2E014D98265211F100716C28 /* K.swift in Sources */,
 				2E48F4E8265B63F200FB47D2 /* MessageTableViewCell.swift in Sources */,
+				2E48F4EB265B673500FB47D2 /* AuthenticationManager.swift in Sources */,
 				2E48F4E3265A27CF00FB47D2 /* RegisterViewController.swift in Sources */,
 				2E014D81265211BA00716C28 /* AppDelegate.swift in Sources */,
 				2E014D9A26521F0E00716C28 /* LoginViewController.swift in Sources */,
