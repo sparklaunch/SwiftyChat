@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 
 protocol AuthenticationManagerDelegate {
-    func showChatViewController(with username: String)
+    func didAuthenticate(_ authenticationManager: AuthenticationManager, with username: String)
 }
 
 struct AuthenticationManager {
@@ -23,7 +23,7 @@ struct AuthenticationManager {
             }
             else {
                 // When no error is found.
-                self.delegate?.showChatViewController(with: username)
+                self.delegate?.didAuthenticate(self, with: username)
             }
         }
     }
@@ -36,7 +36,7 @@ struct AuthenticationManager {
             }
             else {
                 // When no error has been found.
-                self.delegate?.showChatViewController(with: username)
+                self.delegate?.didAuthenticate(self, with: username)
             }
         })
     }

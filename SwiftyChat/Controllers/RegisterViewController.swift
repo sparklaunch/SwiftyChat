@@ -11,13 +11,13 @@ import Firebase
 class RegisterViewController: UIViewController {
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    var authenticationManager: AuthenticationManager?
+    var authenticationManager: AuthenticationManager = AuthenticationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.authenticationManager = AuthenticationManager()
         self.usernameTextField.delegate = self
         self.passwordTextField.delegate = self
-        self.authenticationManager?.delegate = self
+        self.authenticationManager.delegate = self
         self.title = "Register"
     }
     @IBAction func registerButtonPressed(_ sender: UIButton) {
@@ -50,14 +50,14 @@ extension RegisterViewController: UITextFieldDelegate {
         }
     }
     func register(with username: String, with password: String) {
-        self.authenticationManager?.signUp(with: username, with: password)
+        self.authenticationManager.signUp(with: username, with: password)
     }
 }
 
 // MARK: - AuthenticationManagerDelegate
 
 extension RegisterViewController: AuthenticationManagerDelegate {
-    func showChatViewController(with username: String) {
+    func didAuthenticate(_ authenticationManager: AuthenticationManager, with username: String) {
         let chatViewController: ChatViewController = self.storyboard?.instantiateViewController(identifier: "Chat") as! ChatViewController
         chatViewController.username = username
         self.navigationController?.pushViewController(chatViewController, animated: true)

@@ -13,12 +13,16 @@ class ChatViewController: UIViewController {
     @IBOutlet var messageTextField: UITextField!
     var username: String?
     var messages: [Message] = [Message]()
+    let firestoreManager: FirestoreManager = FirestoreManager()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.firestoreManager.delegate = self
         self.messageTextField.delegate = self
         self.chatTableView.delegate = self
         self.chatTableView.dataSource = self
+        self.chatTableView.register(UINib(nibName: "MessageTableViewCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
         self.title = "Swifty Chat"
+        self.firestoreManager.loadMessages()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -95,10 +99,21 @@ extension ChatViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row: Int = indexPath.row
-        let message: Message = messages[row]
-        let messageCell: MessageTableViewCell = MessageTableViewCell()
+        let message: Message = self.messages[row]
+        let messageCell: MessageTableViewCell = self.chatTableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageTableViewCell
         messageCell.username = message.username
-        messageCell.messageText = message.messageText
+        messageCell.messageLabel.text = message.messageText
         return messageCell
+    }
+}
+
+// MARK: - FirestoreManagerDelegate
+
+extension ChatViewController: FirestoreManagerDelegate {
+    func didLoadMessages(_ firestoreManager: FirestoreManager, with data: [Message]) {
+        self.messages = data
+        DispatchQueue.main.async {
+            self.chatTableView.reloadData()
+        }
     }
 }

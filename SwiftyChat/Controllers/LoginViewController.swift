@@ -11,13 +11,12 @@ import Firebase
 class LoginViewController: UIViewController {
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    var authenticationManager: AuthenticationManager?
+    var authenticationManager: AuthenticationManager = AuthenticationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.authenticationManager = AuthenticationManager()
         self.usernameTextField.delegate = self
         self.passwordTextField.delegate = self
-        self.authenticationManager?.delegate = self
+        self.authenticationManager.delegate = self
         self.title = "Log In"
     }
     @IBAction func logInButtonPressed(_ sender: UIButton) {
@@ -25,7 +24,7 @@ class LoginViewController: UIViewController {
             // When both the username and the password textfield have inputs.
             let username: String = self.usernameTextField.text!
             let password: String = self.passwordTextField.text!
-            self.authenticationManager?.signIn(with: username, with: password)
+            self.authenticationManager.signIn(with: username, with: password)
         }
         else {
             // When either one of the username and the password textfield is empty.
@@ -41,7 +40,7 @@ extension LoginViewController: UITextFieldDelegate {
             // When both the username and password textfield have inputs.
             let username: String = self.usernameTextField.text!
             let password: String = self.passwordTextField.text!
-            self.authenticationManager?.signIn(with: username, with: password)
+            self.authenticationManager.signIn(with: username, with: password)
             return true
         }
         else {
@@ -54,7 +53,7 @@ extension LoginViewController: UITextFieldDelegate {
 // MARK: - AuthenticationManagerDelegate
 
 extension LoginViewController: AuthenticationManagerDelegate {
-    func showChatViewController(with username: String) {
+    func didAuthenticate(_ authenticationManager: AuthenticationManager, with username: String) {
         let chatViewController: ChatViewController = self.storyboard?.instantiateViewController(identifier: "Chat") as! ChatViewController
         chatViewController.username = username
         self.navigationController?.pushViewController(chatViewController, animated: true)
