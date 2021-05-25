@@ -10,6 +10,7 @@ import Firebase
 
 protocol AuthenticationManagerDelegate {
     func didAuthenticate(_ authenticationManager: AuthenticationManager, with username: String)
+    func didFailWithError(_ authenticationManager: AuthenticationManager, with localizedError: String)
 }
 
 struct AuthenticationManager {
@@ -19,7 +20,7 @@ struct AuthenticationManager {
             if let safeError: Error = error {
                 // When the error is not nil (if there is an error).
                 let localizedError: String = safeError.localizedDescription
-                print(localizedError)
+                self.delegate?.didFailWithError(self, with: localizedError)
             }
             else {
                 // When no error is found.
@@ -32,7 +33,7 @@ struct AuthenticationManager {
             if let safeError: Error = error {
                 // When it has any error in it.
                 let localizedError: String = safeError.localizedDescription
-                print(localizedError)
+                self.delegate?.didFailWithError(self, with: localizedError)
             }
             else {
                 // When no error has been found.

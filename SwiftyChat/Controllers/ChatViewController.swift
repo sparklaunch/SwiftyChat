@@ -20,8 +20,8 @@ class ChatViewController: UIViewController {
         self.messageTextField.delegate = self
         self.chatTableView.delegate = self
         self.chatTableView.dataSource = self
-        self.chatTableView.register(UINib(nibName: "MessageTableViewCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
-        self.title = "Swifty Chat"
+        self.chatTableView.register(UINib(nibName: K.messageCellNibName, bundle: nil), forCellReuseIdentifier: K.messageCellIdentifier)
+        self.title = K.titleText
         self.firestoreManager.loadMessages()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -40,7 +40,7 @@ class ChatViewController: UIViewController {
         catch let error {
             // When the logout failed.
             let localizedError: String = error.localizedDescription
-            print(localizedError)
+            K.showUIAlert(with: localizedError, on: self)
         }
     }
     @IBAction func sendButtonPressed(_ sender: UIButton) {
@@ -52,6 +52,7 @@ class ChatViewController: UIViewController {
         }
         else {
             // When the message textfield is empty.
+            K.showUIAlert(with: K.Errors.messageTextFieldEmpty, on: self)
         }
     }
 }
@@ -69,6 +70,7 @@ extension ChatViewController: UITextFieldDelegate {
         }
         else {
             // When the message textfield is empty.
+            K.showUIAlert(with: K.Errors.messageTextFieldEmpty, on: self)
             return false
         }
     }
@@ -77,11 +79,11 @@ extension ChatViewController: UITextFieldDelegate {
         let date: Double = Date().timeIntervalSince1970
         let database: Firestore = Firestore.firestore()
         let dataDictionary: [String: Any] = [
-            "username": currentUser,
-            "date": date,
-            "messageText": messageText
+            K.Fire.usernameColumnName: currentUser,
+            K.Fire.dateColumnName: date,
+            K.Fire.messageTextColumnName: messageText
         ]
-        database.collection("messages").addDocument(data: dataDictionary)
+        database.collection(K.Fire.collectionName).addDocument(data: dataDictionary)
     }
 }
 
@@ -89,7 +91,7 @@ extension ChatViewController: UITextFieldDelegate {
 
 extension ChatViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return K.messageCellHeight
     }
 }
 
@@ -102,7 +104,7 @@ extension ChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row: Int = indexPath.row
         let message: Message = self.messages[row]
-        let messageCell: MessageTableViewCell = self.chatTableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageTableViewCell
+        let messageCell: MessageTableViewCell = self.chatTableView.dequeueReusableCell(withIdentifier: K.messageCellIdentifier, for: indexPath) as! MessageTableViewCell
         messageCell.messageLabel.text = message.messageText
         messageCell.othersIcon.isHidden = false
         messageCell.meIcon.isHidden = false
@@ -130,5 +132,8 @@ extension ChatViewController: FirestoreManagerDelegate {
             let indexPath: IndexPath = IndexPath(row: self.messages.count - 1, section: 0)
             self.chatTableView.scrollToRow(at: indexPath, at: .top, animated: true)
         }
+    }
+    func didFailWithError(_ firestoreManager: FirestoreManager, with localizedError: String) {
+        K.showUIAlert(with: localizedError, on: self)
     }
 }

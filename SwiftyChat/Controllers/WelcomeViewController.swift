@@ -28,7 +28,7 @@ class WelcomeViewController: UIViewController {
 extension WelcomeViewController {
     func animateTitleText() {
         self.titleLabel.text = ""
-        let multiplier: Double = 0.3
+        let multiplier: Double = K.titleAnimationMultiplier
         let titleText: String = K.titleText
         let letters: [String] = titleText.map{String($0)}
         let titleTextCount: Int = titleText.count
@@ -36,19 +36,12 @@ extension WelcomeViewController {
             Timer.scheduledTimer(withTimeInterval: multiplier * Double(index), repeats: false) { Timer in
                 self.titleLabel.text?.append(letters[index])
                 if index == titleTextCount - 1 {
-                    self.titleLabel.textColor = UIColor.black
+                    self.titleLabel.textColor = K.Colors.titleTextColor
                 }
                 else {
-                    self.titleLabel.textColor = self.generateRandomColor()
+                    self.titleLabel.textColor = K.Colors.generateRandomColor()
                 }
             }
         }
-    }
-    func generateRandomColor() -> UIColor {
-        let randomR: CGFloat = CGFloat(Float.random(in: 0...1.0))
-        let randomG: CGFloat = CGFloat(Float.random(in: 0...1.0))
-        let randomB: CGFloat = CGFloat(Float.random(in: 0...1.0))
-        let randomColor: UIColor = UIColor(red: randomR, green: randomG, blue: randomB, alpha: 1.0)
-        return randomColor
     }
 }

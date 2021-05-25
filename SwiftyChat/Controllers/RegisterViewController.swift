@@ -18,7 +18,7 @@ class RegisterViewController: UIViewController {
         self.usernameTextField.delegate = self
         self.passwordTextField.delegate = self
         self.authenticationManager.delegate = self
-        self.title = "Register"
+        self.title = K.registerText
     }
     @IBAction func registerButtonPressed(_ sender: UIButton) {
         if self.usernameTextField.text! != "" && self.passwordTextField.text! != "" {
@@ -29,6 +29,7 @@ class RegisterViewController: UIViewController {
         }
         else {
             // When either one of the username and the password textfield is empty.
+            K.showUIAlert(with: K.Errors.fillBothTextfields, on: self)
         }
     }
 }
@@ -46,6 +47,7 @@ extension RegisterViewController: UITextFieldDelegate {
         }
         else {
             // When either one of the textfields is empty.
+            K.showUIAlert(with: K.Errors.fillBothTextfields, on: self)
             return false
         }
     }
@@ -58,8 +60,11 @@ extension RegisterViewController: UITextFieldDelegate {
 
 extension RegisterViewController: AuthenticationManagerDelegate {
     func didAuthenticate(_ authenticationManager: AuthenticationManager, with username: String) {
-        let chatViewController: ChatViewController = self.storyboard?.instantiateViewController(identifier: "Chat") as! ChatViewController
+        let chatViewController: ChatViewController = self.storyboard?.instantiateViewController(identifier: K.chatViewIdentifier) as! ChatViewController
         chatViewController.username = username
         self.navigationController?.pushViewController(chatViewController, animated: true)
+    }
+    func didFailWithError(_ authenticationManager: AuthenticationManager, with localizedError: String) {
+        K.showUIAlert(with: localizedError, on: self)
     }
 }
