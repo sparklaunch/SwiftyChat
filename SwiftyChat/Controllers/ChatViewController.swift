@@ -88,7 +88,9 @@ extension ChatViewController: UITextFieldDelegate {
 // MARK: - Message TableView Delegate
 
 extension ChatViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
 }
 
 // MARK: - Message TableView DataSource
@@ -101,8 +103,19 @@ extension ChatViewController: UITableViewDataSource {
         let row: Int = indexPath.row
         let message: Message = self.messages[row]
         let messageCell: MessageTableViewCell = self.chatTableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageTableViewCell
-        messageCell.username = message.username
         messageCell.messageLabel.text = message.messageText
+        messageCell.othersIcon.isHidden = false
+        messageCell.meIcon.isHidden = false
+        if message.username == Auth.auth().currentUser?.email {
+            // If the message sender and the current username match.
+            messageCell.othersIcon.isHidden = true
+            messageCell.messageLabel.textAlignment = .left
+        }
+        else {
+            // If the message sender and the current username don't match.
+            messageCell.meIcon.isHidden = true
+            messageCell.messageLabel.textAlignment = .right
+        }
         return messageCell
     }
 }
@@ -114,6 +127,8 @@ extension ChatViewController: FirestoreManagerDelegate {
         self.messages = data
         DispatchQueue.main.async {
             self.chatTableView.reloadData()
+            let indexPath: IndexPath = IndexPath(row: self.messages.count - 1, section: 0)
+            self.chatTableView.scrollToRow(at: indexPath, at: .top, animated: true)
         }
     }
 }

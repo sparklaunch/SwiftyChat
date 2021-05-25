@@ -11,7 +11,6 @@ class MessageTableViewCell: UITableViewCell {
     @IBOutlet var meIcon: UIImageView!
     @IBOutlet var othersIcon: UIImageView!
     @IBOutlet var messageLabel: UILabel!
-    var username: String?
     override func awakeFromNib() {
         super.awakeFromNib()
     }
